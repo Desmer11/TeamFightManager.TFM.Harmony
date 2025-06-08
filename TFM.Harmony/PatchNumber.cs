@@ -67,8 +67,23 @@ namespace PatchNumberHarmony
 
 				if (patchIntensity == PatchIntensity.Strong)
 				{
-					int num4 = UnityEngine.Random.Range(10, Mathf.Min(list.Count + 1, 15));
+					int num4 = UnityEngine.Random.Range(10, Mathf.Min(list.Count + 20, 20));
 					num = UnityEngine.Random.Range(4, num4 - 3);
+					num2 = num4 - num;
+					Logger?.LogInfo($"Strong intensity adjusted num: {num}, num2: {num2}");
+				}
+
+				if (patchIntensity == PatchIntensity.Strong)
+				{
+					int num4 = UnityEngine.Random.Range(10, Mathf.Min(list.Count + 20, 20));
+					num = UnityEngine.Random.Range(4, num4 - 3);
+					num2 = num4 - num;
+					Logger?.LogInfo($"Strong intensity adjusted num: {num}, num2: {num2}");
+				}
+				else
+				{
+					int num4 = UnityEngine.Random.Range(10, 20);
+					num = UnityEngine.Random.Range(4, Mathf.Max(num4 - 3, 4)); // Ensure range is valid
 					num2 = num4 - num;
 					Logger?.LogInfo($"Strong intensity adjusted num: {num}, num2: {num2}");
 				}
@@ -96,6 +111,45 @@ namespace PatchNumberHarmony
 					.ToList();
 
 				Logger?.LogInfo($"Nerfs created: {nerfs.Count}");
+
+
+				//________________________________________________________________________
+				//			// Find champions with a win rate below 30%
+				//			List<ChampionInfo> lowWinRateChampions = list.Where(c => __instance.GetWinRate(c.Name) < 0.40f).ToList();
+
+				//			Logger?.LogInfo($"Adding {lowWinRateChampions.Count * 2} additional entries for low-win-rate champions...");
+
+				//			// Add low-win-rate champions twice
+				//			foreach (var champion in lowWinRateChampions)
+				//			{
+				//				buffs.Add((PatchData)changeMethod.Invoke(__instance, new object[] { config, champion.Name, __instance.GetWinRate(champion.Name) }));
+				//			}
+
+				//			Logger?.LogInfo($"Total buffs after adding low-win-rate champions: {buffs.Count}");
+				////________________________________________________________________________
+
+				////________________________________________________________________________
+				//			// Find champions with a win rate below 30%
+				//			List<ChampionInfo> highWinRate = list.Where(c => __instance.GetWinRate(c.Name) > 0.70f).ToList();
+
+				//			Logger?.LogInfo($"Adding {highWinRate.Count * 2} additional entries for low-win-rate champions...");
+
+				//			// Add low-win-rate champions twice
+				//			foreach (var champion in highWinRate)
+				//			{
+				//				buffs.Add((PatchData)changeMethod.Invoke(__instance, new object[] { config, champion.Name, __instance.GetWinRate(champion.Name) }));
+				//			}
+
+				//			Logger?.LogInfo($"Total buffs after adding low-win-rate champions: {buffs.Count}");
+				//________________________________________________________________________
+
+
+
+
+
+
+
+
 
 				buffs.AddRange(nerfs);
 

@@ -17,7 +17,7 @@
 			<HintPath>..\..\..\BepInEx\core\BepInEx.dll</HintPath>
 		</Reference>
 		<Reference Include="Scripts">
-			<HintPath>..\..\..\Teamfight Manager_Data\Managed\Scripts.dll</HintPath>
+		  <HintPath>..\..\..\Teamfight Manager_Data\Managed\Scripts.dll</HintPath>
 		</Reference>
 		<Reference Include="UnityEngine">
 			<HintPath>..\..\..\Teamfight Manager_Data\Managed\UnityEngine.dll</HintPath>
