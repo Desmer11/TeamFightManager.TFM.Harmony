@@ -30,13 +30,13 @@ namespace PatchIntensityHarmony
 			switch (intensity)
 			{
 				case PatchIntensity.Weak:
-					__result = 240; // Increased from 80
+					__result = 250; // Increased from 80
 					break;
 				case PatchIntensity.Normal:
-					__result = 300; // Increased from 100
+					__result = 350; // Increased from 100
 					break;
 				case PatchIntensity.Strong:
-					__result = 390; // Increased from 130
+					__result = 450; // Increased from 130
 					break;
 				default:
 					__result = 0;
@@ -55,13 +55,13 @@ namespace PatchIntensityHarmony
 			switch (intensity)
 			{
 				case PatchIntensity.Weak:
-					__result = 24; // Increased from 8
+					__result = 40; // Increased from 8
 					break;
 				case PatchIntensity.Normal:
-					__result = 33; // Increased from 11
+					__result = 50; // Increased from 11
 					break;
 				case PatchIntensity.Strong:
-					__result = 48; // Increased from 16
+					__result = 70; // Increased from 16
 					break;
 				default:
 					__result = 0;
@@ -86,7 +86,7 @@ namespace PatchIntensityHarmony
 					__result = 700; // Increased from 400
 					break;
 				case PatchIntensity.Strong:
-					__result = 1650; // Increased from 550
+					__result = 1500; // Increased from 550
 					break;
 				default:
 					__result = 0;
@@ -108,10 +108,10 @@ namespace PatchIntensityHarmony
 					__result = 30; // Increased from 12
 					break;
 				case PatchIntensity.Normal:
-					__result = 35; // Increased from 15
+					__result = 40; // Increased from 15
 					break;
 				case PatchIntensity.Strong:
-					__result = 40; // Increased from 18
+					__result = 50; // Increased from 18
 					break;
 				default:
 					__result = 0;
@@ -133,10 +133,10 @@ namespace PatchIntensityHarmony
 					__result = 30; // Increased from 4
 					break;
 				case PatchIntensity.Normal:
-					__result = 30; // Increased from 6
+					__result = 40; // Increased from 6
 					break;
 				case PatchIntensity.Strong:
-					__result = 40; // Increased from 9
+					__result = 50; // Increased from 9
 					break;
 				default:
 					__result = 0;
