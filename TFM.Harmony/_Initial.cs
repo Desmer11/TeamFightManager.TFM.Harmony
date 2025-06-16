@@ -5,7 +5,9 @@ using BepInEx;
 using BepInEx.Logging;
 using PatchIntensityHarmony;
 using PatchNumberHarmony;
+
 using PatchHarmonyChange;
+
 using System;
 
 namespace Initial
@@ -50,7 +52,9 @@ namespace Initial
 				Logger.LogInfo("Finished harmony.PatchAll()");
 
 				var targetMethod = AccessTools.Method(typeof(ChampionPatch), "Patch");
+
 				var prefixMethod = AccessTools.Method(typeof(PatchNumberPatch.ChampionPatch_Patch_Prefix), "Postfix");
+
 
 				if (targetMethod == null)
 				{
@@ -76,6 +80,7 @@ namespace Initial
 				PatchNumberPatch.InitializeLogger(Logger);
 				Logger.LogInfo("Logger initialized for PatchNumberPatch.");
 
+
 				ChampionPatch_Change_Patch.InitializeLogger(Logger);
 				Logger.LogInfo("Logger initialized for PatchHarmonyChange.");
 
@@ -84,6 +89,7 @@ namespace Initial
 
 
 			}
+
             catch (Exception ex)
             {
                 Logger.LogError($"Error during patch initialization: {ex.Message}");

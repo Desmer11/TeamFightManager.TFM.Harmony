@@ -1,10 +1,14 @@
-﻿//using System;
+
+//using System;
 //using System.Collections.Generic;
 //using HarmonyLib;
+
 //using BepInEx.Logging;
 //using System.Linq;
 //using UnityEngine;
 //using System.Reflection;
+
+
 
 //namespace PatchNumberHarmony
 //{
@@ -20,6 +24,7 @@
 
 
 //		[HarmonyPatch(typeof(ChampionPatch), "Patch")]
+
 //		public static class ChampionPatch_Patch_Postfix
 //		{
 //			public static void Postfix(ChampionPatch __instance, GameConfig config, ref List<PatchData> __result)
@@ -36,9 +41,11 @@
 //				Logger?.LogInfo($"Original result count: {__result.Count}");
 
 //				// Get champions and their win rates
+
 //				List<ChampionInfo> list = (from c in config.GetChampionsByPatch(Store.Global.Get<TodayData>(0).Patch)
 //										   orderby __instance.GetWinRate(c.Name)
 //										   select c).ToList();
+
 
 //				Logger?.LogInfo($"Champion list count: {list.Count}");
 
@@ -46,6 +53,7 @@
 //				int max = 1 + list.Count / 6;
 //				int b = UnityEngine.Random.Range(min, max);
 //				int b2 = UnityEngine.Random.Range(min, max);
+
 //				Logger?.LogInfo($"Random ranges: min={min}, max={max}, b={b}, b2={b2}");
 
 //				int num = Mathf.Max(list.Count(c => __instance.GetWinRate(c.Name) <= 0.40f), 10);
@@ -80,5 +88,6 @@
 //				Logger?.LogInfo("PatchNumberPatch: Postfix finished.");
 //			}
 //		}
+
 //	}
 //}

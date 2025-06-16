@@ -38,6 +38,7 @@ namespace PatchNumberHarmony
 				int b = UnityEngine.Random.Range(min, max);
 				int b2 = UnityEngine.Random.Range(min, max);
 
+
 				//Logger?.LogInfo($"Random ranges: min={min}, max={max}, b={b}, b2={b2}");
 
 				int num = Mathf.Max(list.Count(c => __instance.GetWinRate(c.Name) <= 0.45f), b);
@@ -48,6 +49,7 @@ namespace PatchNumberHarmony
 				if (num + num2 >= 6)
 				{
 					num = Mathf.Clamp(Mathf.RoundToInt(10f * (float)num / (float)(num + num2)), 2, 4);
+
 					num2 = 10 - num;
 					Logger?.LogInfo($"Clamped num: {num}, num2: {num2}");
 				}
@@ -61,6 +63,7 @@ namespace PatchNumberHarmony
 					int num3 = UnityEngine.Random.Range(8, 12);
 					num = UnityEngine.Random.Range(3, num3 - 1);
 					num2 = num3 - num;
+
 					Logger?.LogInfo($"-- IF:Normal --Normal intensity adjusted num: {num}, num2: {num2}");
 				}
 
@@ -84,13 +87,17 @@ namespace PatchNumberHarmony
 					int num4 = UnityEngine.Random.Range(10, 20);
 					num = UnityEngine.Random.Range(4, Mathf.Max(num4 - 3, 4)); // Ensure range is valid
 					num2 = num4 - num;
+
 					Logger?.LogInfo($"-- ELSE --Strong intensity adjusted num: {num}, num2: {num2}");
+
 				}
 
 				var changeMethod = typeof(ChampionPatch).GetMethod("Change", BindingFlags.NonPublic | BindingFlags.Instance);
 				if (changeMethod == null)
 				{
+
 					//Logger?.LogError("Cannot find 'Change' method");
+
 					throw new Exception("Cannot find 'Change' method");
 				}
 
@@ -98,6 +105,7 @@ namespace PatchNumberHarmony
 				List<PatchData> buffs = list.Take(num)
 					.Select(c => (PatchData)changeMethod.Invoke(__instance, new object[] { config, c.Name, __instance.GetWinRate(c.Name) }))
 					.ToList();
+
 				Logger?.LogInfo($"Buffs created: {buffs.Count}");
 
 				Logger?.LogInfo("Invoking Change method for nerfs...\n");
@@ -163,26 +171,10 @@ namespace PatchNumberHarmony
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 				Logger?.LogInfo("PatchNumberPatch: Prefix finished, skipping original method.");
 
 				return false;
+
 			}
 		}
 	}
