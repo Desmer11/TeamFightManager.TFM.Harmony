@@ -26,23 +26,26 @@ namespace PatchIntensityHarmony
 			{
 				Logger = BepInEx.Logging.Logger.CreateLogSource("PatchIntensityPatch");
 			}
-			Logger.LogInfo($"Patching AttackIntensity for {intensity}");
+
+			//Logger.LogInfo($"Patching AttackIntensity for {intensity}");
 			switch (intensity)
 			{
 				case PatchIntensity.Weak:
-					__result = 250; // Increased from 80
+					__result = 100; // Increased from 80
 					break;
 				case PatchIntensity.Normal:
-					__result = 350; // Increased from 100
+					__result = 150; // Increased from 100
 					break;
 				case PatchIntensity.Strong:
-					__result = 450; // Increased from 130
+					__result = 200; // Increased from 130
+
 					break;
 				default:
 					__result = 0;
 					break;
 			}
-			Logger.LogInfo($"New AttackIntensity: {__result}");
+
+			//Logger.LogInfo($"New AttackIntensity: {__result}");
 			return false; // Skip original method
 		}
 
@@ -51,23 +54,27 @@ namespace PatchIntensityHarmony
 		[HarmonyPatch(typeof(PatchIntensityExt), nameof(PatchIntensityExt.DefenceIntensity))]
 		public static bool PatchDefenceIntensity(PatchIntensity intensity, ref int __result)
 		{
-			Logger.LogInfo($"Patching DefenceIntensity for {intensity}");
+
+			//Logger.LogInfo($"Patching DefenceIntensity for {intensity}");
 			switch (intensity)
 			{
 				case PatchIntensity.Weak:
-					__result = 40; // Increased from 8
+					__result = 10; // Increased from 8
 					break;
 				case PatchIntensity.Normal:
-					__result = 50; // Increased from 11
+					__result = 15; // Increased from 11
 					break;
 				case PatchIntensity.Strong:
-					__result = 70; // Increased from 16
+					__result = 20; // Increased from 16
+
 					break;
 				default:
 					__result = 0;
 					break;
 			}
-			Logger.LogInfo($"New DefenceIntensity: {__result}");
+
+			//Logger.LogInfo($"New DefenceIntensity: {__result}");
+
 			return false;
 		}
 
@@ -76,23 +83,27 @@ namespace PatchIntensityHarmony
 		[HarmonyPatch(typeof(PatchIntensityExt), nameof(PatchIntensityExt.HpIntensity))]
 		public static bool PatchHpIntensity(PatchIntensity intensity, ref int __result)
 		{
-			Logger.LogInfo($"Patching HpIntensity for {intensity}");
+
+			//Logger.LogInfo($"Patching HpIntensity for {intensity}");
 			switch (intensity)
 			{
 				case PatchIntensity.Weak:
-					__result = 700; // Increased from 300
+					__result = 400; // Increased from 300
 					break;
 				case PatchIntensity.Normal:
-					__result = 700; // Increased from 400
+					__result = 500; // Increased from 400
 					break;
 				case PatchIntensity.Strong:
-					__result = 1500; // Increased from 550
+					__result = 600; // Increased from 550
+
 					break;
 				default:
 					__result = 0;
 					break;
 			}
-			Logger.LogInfo($"New HpIntensity: {__result}");
+
+			//Logger.LogInfo($"New HpIntensity: {__result}");
+
 			return false;
 		}
 
@@ -101,23 +112,27 @@ namespace PatchIntensityHarmony
 		[HarmonyPatch(typeof(PatchIntensityExt), nameof(PatchIntensityExt.SkillCoolIntensity))]
 		public static bool PatchSkillCoolIntensity(PatchIntensity intensity, ref int __result)
 		{
-			Logger.LogInfo($"Patching SkillCoolIntensity for {intensity}");
+
+			//Logger.LogInfo($"Patching SkillCoolIntensity for {intensity}");
 			switch (intensity)
 			{
 				case PatchIntensity.Weak:
-					__result = 30; // Increased from 12
+					__result = 15; // Increased from 12
 					break;
 				case PatchIntensity.Normal:
-					__result = 40; // Increased from 15
+					__result = 20; // Increased from 15
 					break;
 				case PatchIntensity.Strong:
-					__result = 50; // Increased from 18
+					__result = 25; // Increased from 18
+
 					break;
 				default:
 					__result = 0;
 					break;
 			}
-			Logger.LogInfo($"New SkillCoolIntensity: {__result}");
+
+			//Logger.LogInfo($"New SkillCoolIntensity: {__result}");
+
 			return false;
 		}
 
@@ -126,24 +141,27 @@ namespace PatchIntensityHarmony
 		[HarmonyPatch(typeof(PatchIntensityExt), nameof(PatchIntensityExt.AttackSpeedIntensity))]
 		public static bool PatchAttackSpeedIntensity(PatchIntensity intensity, ref int __result)
 		{
-			Logger.LogInfo($"Patching AttackSpeedIntensity for {intensity}");
+
+			//Logger.LogInfo($"Patching AttackSpeedIntensity for {intensity}");
 			switch (intensity)
 			{
 				case PatchIntensity.Weak:
-					__result = 30; // Increased from 4
+					__result = 4; // Increased from 4
 					break;
 				case PatchIntensity.Normal:
-					__result = 40; // Increased from 6
+					__result = 6; // Increased from 6
 					break;
 				case PatchIntensity.Strong:
-					__result = 50; // Increased from 9
+					__result = 10; // Increased from 9
+
 					break;
 				default:
 					__result = 0;
 					break;
 			}
-			Logger.LogInfo($"New AttackSpeedIntensity: {__result}");
-			return false;
+
+			//Logger.LogInfo($"New AttackSpeedIntensity: {__result}");
+
 		}
 	}
 }
