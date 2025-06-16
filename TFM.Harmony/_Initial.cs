@@ -79,6 +79,9 @@ namespace Initial
 				ChampionPatch_Change_Patch.InitializeLogger(Logger);
 				Logger.LogInfo("Logger initialized for PatchHarmonyChange.");
 
+				PatchCreateProperties.PropertyConfig_CreateProperties_Patch.InitializeLogger(Logger);
+				Logger.LogInfo("Logger initialized for NullPropertyPatch.");
+
 
 			}
             catch (Exception ex)

@@ -66,7 +66,7 @@ namespace PatchNumberHarmony
 
 				if (patchIntensity == PatchIntensity.Weak)
 				{
-					int num4 = UnityEngine.Random.Range(10, Mathf.Min(list.Count + 20, 40));
+					int num4 = UnityEngine.Random.Range(10, Mathf.Min(list.Count + 10, 15));
 					num = UnityEngine.Random.Range(4, num4 - 3);
 					num2 = num4 - num;
 					Logger?.LogInfo($"-- IF:Weak -- Strong intensity adjusted num: {num}, num2: {num2}");
@@ -74,7 +74,7 @@ namespace PatchNumberHarmony
 				if (patchIntensity == PatchIntensity.Strong)
 				{
 					Logger?.LogInfo($"-- IF:Strong -- List.Count{list.Count}");
-					int num4 = UnityEngine.Random.Range(20, Mathf.Min(list.Count + 20, 40));
+					int num4 = UnityEngine.Random.Range(20, Mathf.Min(list.Count + 10, 15));
 					num = UnityEngine.Random.Range(4, num4 - 3);
 					num2 = num4 - num;
 					Logger?.LogInfo($"-- IF:Strong -- Strong intensity adjusted num: {num}, num2: {num2}");
@@ -127,13 +127,12 @@ namespace PatchNumberHarmony
 								foreach (var champion in highWinRate)
 								{
 									buffs.Add((PatchData)changeMethod.Invoke(__instance, new object[] { config, champion.Name, __instance.GetWinRate(champion.Name) }));
-									buffs.Add((PatchData)changeMethod.Invoke(__instance, new object[] { config, champion.Name, __instance.GetWinRate(champion.Name) }));
 								}
 
 								Logger?.LogInfo($"-- HIGH-LOW WINRATE-- Total buffs after adding HIGH-LOW-win-rate champions: {buffs.Count}");
 
 
-				// UNUSED CHAMPIONS Or 10% WINRATE
+				//UNUSED CHAMPIONS Or 10 % WINRATE
 				List<ChampionInfo> unused = list.Where(c => __instance.GetWinRate(c.Name) < 0.1f).ToList();
 
 								Logger?.LogInfo($"Adding {unused.Count} additional entries for UNUSED Or 10% Winrate...");

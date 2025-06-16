@@ -80,13 +80,13 @@ namespace PatchIntensityHarmony
 			switch (intensity)
 			{
 				case PatchIntensity.Weak:
-					__result = 300; // Increased from 300
+					__result = 400; // Increased from 300
 					break;
 				case PatchIntensity.Normal:
-					__result = 400; // Increased from 400
+					__result = 500; // Increased from 400
 					break;
 				case PatchIntensity.Strong:
-					__result = 500; // Increased from 550
+					__result = 600; // Increased from 550
 					break;
 				default:
 					__result = 0;

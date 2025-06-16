@@ -107,32 +107,48 @@ namespace PatchHarmonyChange
 			const int minAttackSpeed = 5;  // Corresponds to 0.50 in game units
 			const int maxAttackSpeed = 20; // Corresponds to 2.0 in game units
 
+			Logger.LogInfo($"[Harmony] BEFORE: AttackSpeed={currentAttackSpeed}");
+			Logger.LogInfo($"[Harmony] BEFORE: AttackSpeed={addedAttackSpeed}");
+			Logger.LogInfo($"[Harmony] BEFORE: AttackSpeed={calculatedAttackSpeed}");
+			Logger.LogInfo($"[Harmony] BEFORE: baseAttackDelay={baseAttackDelay}");
 			// Clamp to boundaries
 			int finalAttackSpeed = Mathf.Clamp(calculatedAttackSpeed, minAttackSpeed, maxAttackSpeed);
 
 			// Adjust the result to reflect clamping
-			if (finalAttackSpeed < calculatedAttackSpeed)
-			{
-				Logger.LogInfo($"[Harmony] AttackSpeed {calculatedAttackSpeed} exceeded max boundary {maxAttackSpeed}. Clamped to {maxAttackSpeed}.");
-				__result.AttackSpeed = maxAttackSpeed - currentAttackSpeed; // Adjust the patch to match clamping
-			}
-			else if (finalAttackSpeed > calculatedAttackSpeed)
-			{
-				Logger.LogInfo($"[Harmony] AttackSpeed {calculatedAttackSpeed} was below min boundary {minAttackSpeed}. Clamped to {minAttackSpeed}.");
-				__result.AttackSpeed = minAttackSpeed - currentAttackSpeed; // Adjust the patch to match clamping
-			}
-			else
-			{
-				Logger.LogInfo($"[Harmony] AttackSpeed within boundaries. No clamping applied.");
-			}
-			//if (finalAttackSpeed < 0)
+			//if (finalAttackSpeed < calculatedAttackSpeed)
 			//{
 			//	Logger.LogInfo($"[Harmony] AttackSpeed {calculatedAttackSpeed} exceeded max boundary {maxAttackSpeed}. Clamped to {maxAttackSpeed}.");
-			//	finalAttackSpeed = Mathf.Clamp(calculatedAttackSpeed, minAttackSpeed, maxAttackSpeed);
+			//	__result.AttackSpeed = maxAttackSpeed - currentAttackSpeed; // Adjust the patch to match clamping
+
+			//	Logger.LogInfo($"[Harmony] IF: AttackSpeed={currentAttackSpeed}");
+			//	Logger.LogInfo($"[Harmony] IF: AttackSpeed={addedAttackSpeed}");
+			//	Logger.LogInfo($"[Harmony] IF: AttackSpeed={calculatedAttackSpeed}");
+			//}
+			//else if (finalAttackSpeed > calculatedAttackSpeed)
+			//{
+			//	Logger.LogInfo($"[Harmony] AttackSpeed {calculatedAttackSpeed} was below min boundary {minAttackSpeed}. Clamped to {minAttackSpeed}.");
+			//	__result.AttackSpeed = minAttackSpeed - currentAttackSpeed; // Adjust the patch to match clamping
+
+			//	Logger.LogInfo($"[Harmony] else if: AttackSpeed={currentAttackSpeed}");
+			//	Logger.LogInfo($"[Harmony] else if: AttackSpeed={addedAttackSpeed}");
+			//	Logger.LogInfo($"[Harmony] else if: AttackSpeed={calculatedAttackSpeed}");
+			//}
+			//else
+			//{
+			//	Logger.LogInfo($"[Harmony] AttackSpeed within boundaries. No clamping applied.");
+			//}
+			//if (finalAttackSpeed < 0)
+			//{
+			//	Logger.LogInfo($"[Harmony] finalAttackSpeed: {finalAttackSpeed} exceeded boundary {maxAttackSpeed}. Clamped to {maxAttackSpeed}.");
+			//	__result.AttackSpeed = Mathf.Clamp(calculatedAttackSpeed, minAttackSpeed, maxAttackSpeed);
 			//}
 
 			// Log final result
 			Logger.LogInfo($"[Harmony] FINAL: AttackSpeed={__result.AttackSpeed}");
+			Logger.LogInfo($"[Harmony] FINAL: AttackSpeed={currentAttackSpeed}");
+			Logger.LogInfo($"[Harmony] FINAL: AttackSpeed={addedAttackSpeed}");
+			Logger.LogInfo($"[Harmony] FINAL: AttackSpeed={calculatedAttackSpeed}");
+
 
 
 			//______________________________________________________________________________________________________________________
@@ -177,7 +193,7 @@ namespace PatchHarmonyChange
 
 
 			// Log final result
-			Logger.LogInfo($"[Harmony] FINAL: SkillCool={__result.SkillCool}");
+			//Logger.LogInfo($"[Harmony] FINAL: SkillCool={__result.SkillCool}");
 
 
 			// Log after modification
